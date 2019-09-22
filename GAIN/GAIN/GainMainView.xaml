@@ -4,6 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:GAIN"
+        xmlns:dashboard="clr-namespace:GAIN.Dashboard"
         mc:Ignorable="d"
         Title="MainWindow" Height="700" Width="400"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
@@ -14,23 +15,21 @@
         TextOptions.TextRenderingMode="Auto"        
         Background="{DynamicResource MaterialDesignPaper}"
         FontFamily="{DynamicResource MaterialDesignFont}">
-    <Grid>
-        <materialDesign:Card Padding="32" Margin="16">
-            <StackPanel>
-                <TextBlock Style="{DynamicResource MaterialDesignTitleTextBlock}">Welcome, <Run Text="{Binding FirstName, UpdateSourceTrigger=PropertyChanged}"></Run>!</TextBlock>
-                <Button
-    Style="{StaticResource MaterialDesignRaisedAccentButton}"
-    Width="100"
-    ToolTip="Resource name: MaterialDesignRaisedAccentButton">
-                    ACCENT
-                </Button>
-                <materialDesign:Badged
-  Badge="3">
-                    <Button>
-                        MAIL
-                    </Button>
-                </materialDesign:Badged>
-            </StackPanel>
-        </materialDesign:Card>
-    </Grid>
+    <materialDesign:Transitioner SelectedIndex="0">
+        <!-- Splash Screen -->
+        <Grid x:Name="splashScreen" Grid.RowSpan="3" Background="{StaticResource PrimaryHueMidBrush}">
+            <Path VerticalAlignment="Top" Stretch="Uniform" Data="{StaticResource pathSplashScreenTop}" Fill="{StaticResource PrimaryHueDarkBrush}"/>
+            <Path VerticalAlignment="Bottom" Stretch="Uniform" Data="{StaticResource pathSplashScreenBottom}" Fill="{StaticResource PrimaryHueLightBrush}"/>
+            <materialDesign:TransitioningContent OpeningEffect="{materialDesign:TransitionEffect ExpandIn}">
+                <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
+                    <Path Data="{StaticResource pathLogoArrow}" Stretch="Uniform" Height="50" Fill="{StaticResource PrimaryHueMidForegroundBrush}"/>
+                    <Path Data="{StaticResource pathLogoText}" Stretch="Uniform" Height="50" Margin="0,8,0,0" Fill="{StaticResource PrimaryHueMidForegroundBrush}"/>
+                    <Button Content="Get Started" Margin="0,16" Command="{x:Static materialDesign:Transitioner.MoveNextCommand}"/>
+                </StackPanel>
+            </materialDesign:TransitioningContent>
+        </Grid>
+        <materialDesign:TransitionerSlide OpeningEffect="{materialDesign:TransitionEffect FadeIn}">
+            <dashboard:DashboardView/>
+        </materialDesign:TransitionerSlide>
+    </materialDesign:Transitioner>
 </Window>

@@ -9,27 +9,24 @@ using System.Windows.Data;
 using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
-using System.Windows.Media.Animation;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace GAIN
+namespace GAIN.Dashboard
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Interaction logic for DashboardView.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class DashboardView : UserControl
     {
-        private readonly GainMainViewModel _viewModel;
-
-        public MainWindow()
+        private readonly DashboardViewModel _viewModel;
+        public DashboardView()
         {
             InitializeComponent();
-            _viewModel = new GainMainViewModel();
+            _viewModel = new DashboardViewModel();
             // The DataContext serves as the starting point of Binding Paths
             DataContext = _viewModel;
-            
         }
     }
 }

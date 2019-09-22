@@ -61,7 +61,16 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Dashboard\DashboardView.xaml.cs">
+      <DependentUpon>DashboardView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Dashboard\DashboardViewModel.cs" />
     <Compile Include="UserModel.cs" />
+    <Compile Include="ViewModelBase.cs" />
+    <Page Include="Dashboard\DashboardView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="GainMainView.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
