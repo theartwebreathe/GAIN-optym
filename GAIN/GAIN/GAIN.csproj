@@ -65,8 +65,14 @@
       <DependentUpon>DashboardView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Dashboard\DashboardViewModel.cs" />
+    <Compile Include="Dashboard\Day.cs" />
+    <Compile Include="Dashboard\HistoricalWorkout.cs" />
     <Compile Include="UserModel.cs" />
     <Compile Include="ViewModelBase.cs" />
+    <Compile Include="Workout\NewWorkoutView.xaml.cs">
+      <DependentUpon>NewWorkoutView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Workout\NewWorkoutViewModel.cs" />
     <Page Include="Dashboard\DashboardView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -84,6 +90,10 @@
       <DependentUpon>GainMainView.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Workout\NewWorkoutView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs">

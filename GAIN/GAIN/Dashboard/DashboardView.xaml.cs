@@ -28,5 +28,22 @@ namespace GAIN.Dashboard
             // The DataContext serves as the starting point of Binding Paths
             DataContext = _viewModel;
         }
+
+        public static readonly RoutedEvent NewWorkoutButtonPressedEvent = EventManager.RegisterRoutedEvent(
+            "NewWorkoutButtonPressed",
+            RoutingStrategy.Bubble,
+            typeof(RoutedEventHandler),
+            typeof(DashboardView));
+
+        public event RoutedEventHandler NewWorkoutButtonPressed
+        {
+            add { AddHandler(NewWorkoutButtonPressedEvent, value); }
+            remove { RemoveHandler(NewWorkoutButtonPressedEvent, value); }
+        }
+
+        private void ButtonNewWorkout_Click(object sender, RoutedEventArgs e)
+        {
+            RaiseEvent(new RoutedEventArgs(DashboardView.NewWorkoutButtonPressedEvent));
+        }
     }
 }

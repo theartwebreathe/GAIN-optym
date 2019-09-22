@@ -31,5 +31,15 @@ namespace GAIN
             DataContext = _viewModel;
             
         }
+
+        private void DashboardView_NewWorkoutButtonPressed(object sender, RoutedEventArgs e)
+        {
+            transitioner.SelectedIndex = 2;
+        }
+
+        private void NewWorkoutView_BackButtonPressed(object sender, RoutedEventArgs e)
+        {
+            transitioner.SelectedIndex = transitioner.SelectedIndex - 1;
+        }
     }
 }
