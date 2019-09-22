@@ -20,9 +20,14 @@ namespace GAIN
     /// </summary>
     public partial class MainWindow : Window
     {
+        private readonly GainMainViewModel _viewModel;
+
         public MainWindow()
         {
             InitializeComponent();
+            _viewModel = new GainMainViewModel();
+            // The DataContext serves as the starting point of Binding Paths
+            DataContext = _viewModel;
         }
     }
 }

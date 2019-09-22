@@ -7,12 +7,10 @@ C:\Users\kim\Views\GAIN\GAIN\GAIN\bin\Debug\MaterialDesignColors.pdb
 C:\Users\kim\Views\GAIN\GAIN\GAIN\bin\Debug\MaterialDesignThemes.Wpf.pdb
 C:\Users\kim\Views\GAIN\GAIN\GAIN\bin\Debug\MaterialDesignThemes.Wpf.xml
 C:\Users\kim\Views\GAIN\GAIN\GAIN\obj\Debug\GAIN.csprojAssemblyReference.cache
-C:\Users\kim\Views\GAIN\GAIN\GAIN\obj\Debug\MainWindow.g.cs
 C:\Users\kim\Views\GAIN\GAIN\GAIN\obj\Debug\App.g.cs
 C:\Users\kim\Views\GAIN\GAIN\GAIN\obj\Debug\GAIN_MarkupCompile.cache
 C:\Users\kim\Views\GAIN\GAIN\GAIN\obj\Debug\GAIN_MarkupCompile.lref
 C:\Users\kim\Views\GAIN\GAIN\GAIN\obj\Debug\App.baml
-C:\Users\kim\Views\GAIN\GAIN\GAIN\obj\Debug\MainWindow.baml
 C:\Users\kim\Views\GAIN\GAIN\GAIN\obj\Debug\GAIN.g.resources
 C:\Users\kim\Views\GAIN\GAIN\GAIN\obj\Debug\GAIN.Properties.Resources.resources
 C:\Users\kim\Views\GAIN\GAIN\GAIN\obj\Debug\GAIN.csproj.GenerateResource.cache
@@ -20,3 +18,5 @@ C:\Users\kim\Views\GAIN\GAIN\GAIN\obj\Debug\GAIN.csproj.CoreCompileInputs.cache
 C:\Users\kim\Views\GAIN\GAIN\GAIN\obj\Debug\GAIN.csproj.CopyComplete
 C:\Users\kim\Views\GAIN\GAIN\GAIN\obj\Debug\GAIN.exe
 C:\Users\kim\Views\GAIN\GAIN\GAIN\obj\Debug\GAIN.pdb
+C:\Users\kim\Views\GAIN\GAIN\GAIN\obj\Debug\GainMainView.g.cs
+C:\Users\kim\Views\GAIN\GAIN\GAIN\obj\Debug\GainMainView.baml
