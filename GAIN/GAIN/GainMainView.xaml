@@ -16,7 +16,21 @@
         FontFamily="{DynamicResource MaterialDesignFont}">
     <Grid>
         <materialDesign:Card Padding="32" Margin="16">
-            <TextBlock Style="{DynamicResource MaterialDesignTitleTextBlock}">Welcome, <Run Text="{Binding FirstName, UpdateSourceTrigger=PropertyChanged}"></Run>!</TextBlock>
+            <StackPanel>
+                <TextBlock Style="{DynamicResource MaterialDesignTitleTextBlock}">Welcome, <Run Text="{Binding FirstName, UpdateSourceTrigger=PropertyChanged}"></Run>!</TextBlock>
+                <Button
+    Style="{StaticResource MaterialDesignRaisedAccentButton}"
+    Width="100"
+    ToolTip="Resource name: MaterialDesignRaisedAccentButton">
+                    ACCENT
+                </Button>
+                <materialDesign:Badged
+  Badge="3">
+                    <Button>
+                        MAIL
+                    </Button>
+                </materialDesign:Badged>
+            </StackPanel>
         </materialDesign:Card>
     </Grid>
 </Window>
