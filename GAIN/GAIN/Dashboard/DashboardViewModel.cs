@@ -41,7 +41,7 @@ namespace GAIN.Dashboard
                     IsToday = DateTime.Now.DayOfWeek == DayOfWeek.Sunday,
                     IsTrophy = true,
                 }
-            );;
+            );
             daysOfWeek.Add(new Day
             {
                 Code = "M",

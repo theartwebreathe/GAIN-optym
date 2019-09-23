@@ -41,5 +41,16 @@ namespace GAIN
         {
             transitioner.SelectedIndex = transitioner.SelectedIndex - 1;
         }
+
+        private void BuildCustomWorkoutView_BackButtonPressed(object sender, RoutedEventArgs e)
+        {
+            transitioner.SelectedIndex = transitioner.SelectedIndex - 1;
+        }
+
+        private void NewWorkoutView_CreateCustomWorkoutButtonPressed(object sender, RoutedEventArgs e)
+        {
+            buildCustomWorkoutView.DataContext.SelectedMuscleGroups = newWorkoutView.majorMuscleGroupsListBox.SelectedItems;
+            transitioner.SelectedIndex = transitioner.SelectedIndex + 1;
+        }
     }
 }

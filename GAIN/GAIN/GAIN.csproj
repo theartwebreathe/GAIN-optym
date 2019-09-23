@@ -69,10 +69,16 @@
     <Compile Include="Dashboard\HistoricalWorkout.cs" />
     <Compile Include="UserModel.cs" />
     <Compile Include="ViewModelBase.cs" />
+    <Compile Include="Workout\MajorMuscleGroup.cs" />
+    <Compile Include="Workout\BuildCustomWorkoutView.xaml.cs">
+      <DependentUpon>BuildCustomWorkoutView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Workout\NewWorkoutView.xaml.cs">
       <DependentUpon>NewWorkoutView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Workout\BuildCustomWorkoutViewModel.cs" />
     <Compile Include="Workout\NewWorkoutViewModel.cs" />
+    <Compile Include="Workout\UserWorkout.cs" />
     <Page Include="Dashboard\DashboardView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -90,6 +96,10 @@
       <DependentUpon>GainMainView.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Workout\BuildCustomWorkoutView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="Workout\NewWorkoutView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

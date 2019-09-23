@@ -44,12 +44,7 @@
                 </ItemsControl.ItemTemplate>
             </ItemsControl>
         </materialDesign:ColorZone>
-        <Grid Grid.Row="2">
-            <Grid.RowDefinitions>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="*"/>
-            </Grid.RowDefinitions>
-            <TextBlock Margin="8,24,8,8" Text="Workouts" Style="{StaticResource MaterialDesignHeadlineTextBlock}"/>
+        <Grid Grid.Row="2" Margin="0,8,0,0">
             <ListBox Grid.Row="1" ItemsSource="{Binding HistoricalWorkouts}" HorizontalContentAlignment="Stretch">
                 <ListBox.ItemTemplate>
                     <DataTemplate>
@@ -60,7 +55,7 @@
                             </Grid.ColumnDefinitions>
                             <StackPanel>
                                 <TextBlock Text="{Binding Date}" Foreground="{StaticResource MaterialDesignColumnHeader}" Style="{StaticResource MaterialDesignCaptionTextBlock}"/>
-                                <TextBlock Text="{Binding Description}" Style="{StaticResource MaterialDesignTitleTextBlock}"/>
+                                <TextBlock Text="{Binding Description}" Style="{StaticResource MaterialDesignSubheadingTextBlock}"/>
                             </StackPanel>
                             <StackPanel x:Name="delta" Grid.Column="1" Orientation="Horizontal" VerticalAlignment="Center">
                                 <Path x:Name="icon" Fill="#333333" Margin="0,0,8,0"/>

@@ -33,7 +33,10 @@
             <dashboard:DashboardView NewWorkoutButtonPressed="DashboardView_NewWorkoutButtonPressed"/>
         </materialDesign:TransitionerSlide>
         <materialDesign:TransitionerSlide OpeningEffect="{materialDesign:TransitionEffect FadeIn}">
-            <workout:NewWorkoutView BackButtonPressed="NewWorkoutView_BackButtonPressed"/>
+            <workout:NewWorkoutView x:Name="newWorkoutView" BackButtonPressed="NewWorkoutView_BackButtonPressed" CreateCustomWorkoutButtonPressed="NewWorkoutView_CreateCustomWorkoutButtonPressed"/>
+        </materialDesign:TransitionerSlide>
+        <materialDesign:TransitionerSlide OpeningEffect="{materialDesign:TransitionEffect FadeIn}">
+            <workout:BuildCustomWorkoutView x:Name="buildCustomWorkoutView" BackButtonPressed="BuildCustomWorkoutView_BackButtonPressed"/>
         </materialDesign:TransitionerSlide>
     </materialDesign:Transitioner>
 </Window>
