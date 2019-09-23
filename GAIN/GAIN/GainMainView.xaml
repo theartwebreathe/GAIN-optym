@@ -25,7 +25,7 @@
                 <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
                     <Path Data="{StaticResource pathLogoArrow}" Stretch="Uniform" Height="50" Fill="{StaticResource PrimaryHueMidForegroundBrush}"/>
                     <Path Data="{StaticResource pathLogoText}" Stretch="Uniform" Height="50" Margin="0,8,0,0" Fill="{StaticResource PrimaryHueMidForegroundBrush}"/>
-                    <Button Content="GET STARTED" Margin="0,16" Command="{x:Static materialDesign:Transitioner.MoveNextCommand}"/>
+                    <Button Content="GET STARTED" Margin="0,48" Command="{x:Static materialDesign:Transitioner.MoveNextCommand}"/>
                 </StackPanel>
             </materialDesign:TransitioningContent>
         </Grid>
@@ -36,7 +36,11 @@
             <workout:NewWorkoutView x:Name="newWorkoutView" BackButtonPressed="NewWorkoutView_BackButtonPressed" CreateCustomWorkoutButtonPressed="NewWorkoutView_CreateCustomWorkoutButtonPressed"/>
         </materialDesign:TransitionerSlide>
         <materialDesign:TransitionerSlide OpeningEffect="{materialDesign:TransitionEffect FadeIn}">
-            <workout:BuildCustomWorkoutView x:Name="buildCustomWorkoutView" BackButtonPressed="BuildCustomWorkoutView_BackButtonPressed"/>
+            <workout:BuildCustomWorkoutView x:Name="buildCustomWorkoutView" StartButtonPressed="BuildCustomWorkoutView_StartButtonPressed" BackButtonPressed="BuildCustomWorkoutView_BackButtonPressed"/>
         </materialDesign:TransitionerSlide>
+        <materialDesign:TransitionerSlide OpeningEffect="{materialDesign:TransitionEffect FadeIn}">
+            <workout:RecordWorkoutView BackButtonPressed="RecordWorkoutView_BackButtonPressed" x:Name="recordWorkoutView" />
+        </materialDesign:TransitionerSlide>
+        
     </materialDesign:Transitioner>
 </Window>

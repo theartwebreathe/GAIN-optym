@@ -60,7 +60,7 @@ namespace GAIN.Workout
 
         private void ButtonStart_Click(object sender, RoutedEventArgs e)
         {
-            RaiseEvent(new RoutedEventArgs(NewWorkoutView.StartButtonPressedEvent));
+            RaiseEvent(new RoutedEventArgs(BuildCustomWorkoutView.StartButtonPressedEvent));
         }
     }
 }

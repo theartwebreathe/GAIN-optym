@@ -77,8 +77,8 @@
                 </ListBox.ItemTemplate>
             </ListBox>
             <Button x:Name="buttonNewWorkout" Grid.Row="1" VerticalAlignment="Bottom" HorizontalAlignment="Right" Margin="24"
-                    Style="{StaticResource MaterialDesignFloatingActionMiniAccentButton}"
-                    ToolTip="MaterialDesignFloatingActionMiniAccentButton" Click="ButtonNewWorkout_Click">
+                    Style="{StaticResource MaterialDesignFloatingActionAccentButton}"
+                    Click="ButtonNewWorkout_Click">
                 <materialDesign:PackIcon Kind="Add" Height="24" Width="24" />
             </Button>
         </Grid>

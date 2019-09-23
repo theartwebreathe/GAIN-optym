@@ -28,9 +28,7 @@ namespace GAIN
         {
             InitializeComponent();
             _viewModel = new GainMainViewModel();
-            // The DataContext serves as the starting point of Binding Paths
             DataContext = _viewModel;
-            
         }
 
         private void DashboardView_NewWorkoutButtonPressed(object sender, RoutedEventArgs e)
@@ -53,6 +51,17 @@ namespace GAIN
             ((Workout.BuildCustomWorkoutViewModel)buildCustomWorkoutView.DataContext).SelectedMuscleGroups.Clear();
             ((Workout.BuildCustomWorkoutViewModel)buildCustomWorkoutView.DataContext).SelectedMuscleGroups = ((Workout.NewWorkoutViewModel)newWorkoutView.DataContext).SelectedMuscleGroups;
             transitioner.SelectedIndex = transitioner.SelectedIndex + 1;
+        }
+
+        private void BuildCustomWorkoutView_StartButtonPressed(object sender, RoutedEventArgs e)
+        {
+            ((Workout.RecordWorkoutViewModel)recordWorkoutView.DataContext).SelectedExercises = ((Workout.BuildCustomWorkoutViewModel)buildCustomWorkoutView.DataContext).SelectedExercises;
+            transitioner.SelectedIndex = transitioner.SelectedIndex + 1;
+        }
+
+        private void RecordWorkoutView_BackButtonPressed(object sender, RoutedEventArgs e)
+        {
+            transitioner.SelectedIndex = transitioner.SelectedIndex - 1;
         }
     }
 }

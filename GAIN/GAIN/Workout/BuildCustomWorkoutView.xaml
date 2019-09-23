@@ -11,6 +11,7 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
         <materialDesign:ColorZone Mode="PrimaryMid" Padding="8" materialDesign:ShadowAssist.ShadowDepth="Depth2" Panel.ZIndex="10">
             <Grid>
@@ -22,37 +23,43 @@
         </materialDesign:ColorZone>
 
         <ScrollViewer Grid.Row="1" HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Auto">
-            <StackPanel>
-                <materialDesign:Card Margin="16" Padding="16">
-                    <StackPanel>
-                        <TextBlock Margin="8,0,8,8" Text="My Workouts" HorizontalAlignment="Left" Style="{StaticResource MaterialDesignSubheadingTextBlock}"/>
-                        <ListBox Grid.Row="1" ItemsSource="{Binding SelectedMuscleGroups}" HorizontalContentAlignment="Stretch">
-                            <ListBox.ItemTemplate>
-                                <DataTemplate>
-                                    <TextBlock Text="{Binding Description}" Style="{StaticResource MaterialDesignSubheadingTextBlock}"/>
-                                </DataTemplate>
-                            </ListBox.ItemTemplate>
-                        </ListBox>
-                    </StackPanel>
-                </materialDesign:Card>
-                <materialDesign:Card Margin="16,0,16,16" Padding="16">
-                    <!--<Grid>
-                        <Button HorizontalAlignment="Right" VerticalAlignment="Top" Panel.ZIndex="5" Click="ButtonCreateCustomWorkout_Click" materialDesign:ButtonAssist.CornerRadius="15" Style="{StaticResource MaterialDesignOutlinedButton}">
-                            CREATE
-                        </Button>
-                        <StackPanel>
-                            <TextBlock Margin="8,0,8,16" Text="Custom Workout" HorizontalAlignment="Left" Style="{StaticResource MaterialDesignSubheadingTextBlock}"/>
-                            <ListBox Grid.Row="1" ItemsSource="{Binding MajorMuscleGroups}" HorizontalContentAlignment="Stretch">
-                                <ListBox.ItemTemplate>
-                                    <DataTemplate>
-                                        <CheckBox Content="{Binding Description}" IsChecked="{Binding IsChecked}"/>
-                                    </DataTemplate>
-                                </ListBox.ItemTemplate>
-                            </ListBox>      
-                        </StackPanel>
-                    </Grid>-->
-                </materialDesign:Card>
-            </StackPanel>
+            <ItemsControl ItemsSource="{Binding SelectedMuscleGroups}" Margin="0,0,0,16">
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate>
+                        <materialDesign:Card Margin="16,16,16,0" Padding="16">
+                            <StackPanel>
+                                <TextBlock Margin="8,0,8,8" Text="{Binding Description}" HorizontalAlignment="Left" Style="{StaticResource MaterialDesignSubheadingTextBlock}"/>
+                                <ListBox SelectionMode="Multiple" Grid.Row="1" ItemsSource="{Binding Exercises}" HorizontalContentAlignment="Stretch">
+                                    <ListBox.ItemTemplate>
+                                        <DataTemplate>
+                                            <CheckBox IsChecked="{Binding IsChecked}" Content="{Binding Description}"/>
+                                        </DataTemplate>
+                                    </ListBox.ItemTemplate>
+                                    <ListBox.ItemContainerStyle>
+                                        <Style TargetType="{x:Type ListBoxItem}" BasedOn="{StaticResource {x:Type ListBoxItem}}">
+                                            <Setter Property="IsSelected" Value="{Binding IsChecked}"/>
+                                        </Style>
+                                    </ListBox.ItemContainerStyle>
+                                </ListBox>
+                            </StackPanel>
+                        </materialDesign:Card>
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+            </ItemsControl>
         </ScrollViewer>
+        <materialDesign:ColorZone Grid.Row="2" Mode="Light"  Padding="8" materialDesign:ShadowAssist.ShadowDepth="Depth2" Panel.ZIndex="10">
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                <Button
+                    Style="{StaticResource MaterialDesignFlatButton}">
+                    SAVE
+                </Button>
+                <Button Click="ButtonStart_Click" 
+                    Command="{Binding GetSelectedItemsCommand}"
+                    materialDesign:ButtonAssist.CornerRadius="15" 
+                    Style="{StaticResource MaterialDesignOutlinedButton}" BorderBrush="{StaticResource PrimaryHueMidBrush}">
+                    START
+                </Button>
+            </StackPanel>
+        </materialDesign:ColorZone>
     </Grid>
 </UserControl>
