@@ -51,18 +51,25 @@
                     <Grid>
                         <Button HorizontalAlignment="Right" VerticalAlignment="Top" 
                                 Panel.ZIndex="5" Click="ButtonCreateCustomWorkout_Click" 
+                                Command="{Binding GetSelectedItemsCommand}"
+                                CommandParameter="{Binding ElementName=majorMuscleGroupsListBox, Path=SelectedItems}"
                                 materialDesign:ButtonAssist.CornerRadius="15" 
                                 Style="{StaticResource MaterialDesignOutlinedButton}">
                             CREATE
                         </Button>
                         <StackPanel>
                             <TextBlock Margin="8,0,8,16" Text="Custom Workout" HorizontalAlignment="Left" Style="{StaticResource MaterialDesignSubheadingTextBlock}"/>
-                            <ListBox x:Name="majorMuscleGroupsListBox" Grid.Row="1" ItemsSource="{Binding MajorMuscleGroups}" HorizontalContentAlignment="Stretch">
+                            <ListBox SelectionMode="Multiple" x:Name="majorMuscleGroupsListBox" Grid.Row="1" ItemsSource="{Binding MajorMuscleGroups}" HorizontalContentAlignment="Stretch">
                                 <ListBox.ItemTemplate>
                                     <DataTemplate>
                                         <CheckBox Content="{Binding Description}" IsChecked="{Binding IsChecked}"/>
                                     </DataTemplate>
                                 </ListBox.ItemTemplate>
+                                <ListBox.ItemContainerStyle>
+                                    <Style TargetType="{x:Type ListBoxItem}" BasedOn="{StaticResource {x:Type ListBoxItem}}">
+                                        <Setter Property="IsSelected" Value="{Binding IsChecked}"/>
+                                    </Style>
+                                </ListBox.ItemContainerStyle>
                             </ListBox>      
                         </StackPanel>
                     </Grid>

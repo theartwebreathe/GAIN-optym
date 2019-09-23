@@ -5,11 +5,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
+using Prism.Commands;
 
 namespace GAIN.Workout
 {
     class NewWorkoutViewModel : ViewModelBase
     {
+        public DelegateCommand<object> GetSelectedItemsCommand { get; private set; }
         private ObservableCollection<UserWorkout> userWorkouts = new ObservableCollection<UserWorkout>();
         public ObservableCollection<UserWorkout> UserWorkouts
         {
@@ -42,6 +44,7 @@ namespace GAIN.Workout
         }
         public NewWorkoutViewModel()
         {
+            GetSelectedItemsCommand = new DelegateCommand<object>(GetSelectedItems);
             userWorkouts.Add(new UserWorkout
                 {
                     Description = "Strength 1",
@@ -116,6 +119,16 @@ namespace GAIN.Workout
                     Description = "Abs",
                 }
             );
+        }
+
+        private void GetSelectedItems(object obj)
+        {
+            SelectedMuscleGroups.Clear();
+            System.Collections.IList items = (System.Collections.IList)obj;
+            var collection = items.Cast<MajorMuscleGroup>();
+            foreach (var mgroup in collection) {
+                SelectedMuscleGroups.Add(mgroup);
+            }
         }
     }
 }

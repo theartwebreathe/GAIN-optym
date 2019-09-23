@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -49,7 +50,8 @@ namespace GAIN
 
         private void NewWorkoutView_CreateCustomWorkoutButtonPressed(object sender, RoutedEventArgs e)
         {
-            buildCustomWorkoutView.DataContext.SelectedMuscleGroups = newWorkoutView.majorMuscleGroupsListBox.SelectedItems;
+            ((Workout.BuildCustomWorkoutViewModel)buildCustomWorkoutView.DataContext).SelectedMuscleGroups.Clear();
+            ((Workout.BuildCustomWorkoutViewModel)buildCustomWorkoutView.DataContext).SelectedMuscleGroups = ((Workout.NewWorkoutViewModel)newWorkoutView.DataContext).SelectedMuscleGroups;
             transitioner.SelectedIndex = transitioner.SelectedIndex + 1;
         }
     }
