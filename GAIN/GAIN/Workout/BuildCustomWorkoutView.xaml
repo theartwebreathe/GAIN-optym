@@ -15,10 +15,10 @@
         </Grid.RowDefinitions>
         <materialDesign:ColorZone Mode="PrimaryMid" Padding="8" materialDesign:ShadowAssist.ShadowDepth="Depth2" Panel.ZIndex="10">
             <Grid>
-                <Button VerticalAlignment="Top" HorizontalAlignment="Left" Click="ButtonBack_Click" Style="{StaticResource MaterialDesignIconForegroundButton}" ToolTip="MaterialDesignIconForegroundButton">
+                <Button VerticalAlignment="Top" HorizontalAlignment="Left" Click="ButtonBack_Click" Style="{StaticResource MaterialDesignIconForegroundButton}">
                     <materialDesign:PackIcon Kind="KeyboardBackspace" />
                 </Button>
-                <TextBlock Margin="8,8,8,8" Text="Build Custom Workout" VerticalAlignment="Center" HorizontalAlignment="Center" Style="{StaticResource MaterialDesignHeadlineTextBlock}"/>
+                <TextBlock Margin="8,8,8,8" Text="Create Custom Workout" VerticalAlignment="Center" HorizontalAlignment="Center" Style="{StaticResource MaterialDesignHeadlineTextBlock}"/>
             </Grid>
         </materialDesign:ColorZone>
 

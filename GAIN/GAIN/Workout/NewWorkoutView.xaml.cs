@@ -20,7 +20,7 @@ namespace GAIN.Workout
     /// </summary>
     public partial class NewWorkoutView : UserControl
     {
-        private readonly NewWorkoutViewModel _viewModel;
+        private NewWorkoutViewModel _viewModel;
         public NewWorkoutView()
         {
             InitializeComponent();
@@ -77,6 +77,8 @@ namespace GAIN.Workout
 
         private void ButtonStart_Click(object sender, RoutedEventArgs e)
         {
+            var selWorkout = (UserWorkout)(sender as Button).Tag;
+            _viewModel.SetSelectedWorkout(selWorkout);
             RaiseEvent(new RoutedEventArgs(NewWorkoutView.StartButtonPressedEvent));
         }
     }

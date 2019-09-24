@@ -36,10 +36,31 @@
                                         </Grid.ColumnDefinitions>
                                         <StackPanel Margin="0,0,8,0">
                                             <TextBlock Text="{Binding Description}" Style="{StaticResource MaterialDesignSubheadingTextBlock}"/>
-                                            <TextBlock Text="{Binding Details}" TextWrapping="Wrap" Foreground="{StaticResource MaterialDesignColumnHeader}" Style="{StaticResource MaterialDesignCaptionTextBlock}"/>
+                                            <ItemsControl ItemsSource="{Binding Exercises}">
+                                                <ItemsControl.ItemsPanel>
+                                                    <ItemsPanelTemplate>
+                                                        <WrapPanel Orientation="Horizontal" IsItemsHost="True"/>
+                                                    </ItemsPanelTemplate>
+                                                </ItemsControl.ItemsPanel>
+                                                <ItemsControl.ItemTemplate>
+                                                    <DataTemplate>
+                                                        <TextBlock TextWrapping="NoWrap">
+                                                            <TextBlock TextWrapping="Wrap" FontStyle="Italic" Text="{Binding Description}"
+                                                               Foreground="{StaticResource MaterialDesignColumnHeader}" 
+                                                               Style="{StaticResource MaterialDesignCaptionTextBlock}"/>
+                                                            <TextBlock x:Name="comma" FontStyle="Italic" Visibility="Collapsed" Foreground="{StaticResource MaterialDesignColumnHeader}" 
+                                                               Style="{StaticResource MaterialDesignCaptionTextBlock}">,&#160;</TextBlock>
+                                                        </TextBlock>
+                                                        <DataTemplate.Triggers>
+                                                            <DataTrigger Binding="{Binding RelativeSource={RelativeSource PreviousData}}" Value="{x:Null}">
+                                                                <Setter TargetName="comma" Property="Visibility" Value="Visible"/>
+                                                            </DataTrigger>
+                                                        </DataTemplate.Triggers>
+                                                    </DataTemplate>
+                                                </ItemsControl.ItemTemplate>
+                                            </ItemsControl>
                                         </StackPanel>
-                                        <Button Click="ButtonStart_Click" Grid.Column="1" materialDesign:ButtonAssist.CornerRadius="15" 
-                                                Style="{StaticResource MaterialDesignOutlinedButton}" BorderBrush="{StaticResource PrimaryHueMidBrush}">
+                                        <Button Grid.Column="1" materialDesign:ButtonAssist.CornerRadius="15" Tag="{Binding}" Click="ButtonStart_Click" Style="{StaticResource MaterialDesignOutlinedButton}" BorderBrush="{StaticResource PrimaryHueMidBrush}">
                                             START
                                         </Button>
                                     </Grid>

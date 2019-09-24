@@ -13,7 +13,18 @@
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
-        <materialDesign:ColorZone Mode="PrimaryMid" Padding="16" Height="150"></materialDesign:ColorZone>
+        <materialDesign:ColorZone Mode="PrimaryDark" Height="150" Padding="0,20,0,0">
+            <Grid>
+                <TextBlock Text="Monthly Progress" Foreground="#CCFFFFFF" 
+                           Style="{StaticResource MaterialDesignHeadlineTextBlock}" Margin="16,0,0,0"/>
+                <Path Data="{StaticResource pathGraph1}" Fill="#FFF" Stretch="Fill" Margin="0,20,0,0"/>
+                <Path Data="{StaticResource pathGraph2}" Fill="{StaticResource PrimaryHueMidBrush}" Stretch="Fill" Margin="0,28,0,0"/>
+                <TextBlock Text="Aug 21" Foreground="#CCFFFFFF" VerticalAlignment="Bottom"
+                           Style="{StaticResource MaterialDesignSubheadingTextBlock}" Margin="8,0,0,8"/>
+                <TextBlock Text="Sept 21" Foreground="#CCFFFFFF" VerticalAlignment="Bottom" HorizontalAlignment="Right"
+                           Style="{StaticResource MaterialDesignSubheadingTextBlock}" Margin="0,0,8,8"/>
+            </Grid>
+        </materialDesign:ColorZone>
         <materialDesign:ColorZone Grid.Row="1" Padding="16" Mode="Light" materialDesign:ShadowAssist.ShadowDepth="Depth3">
             <ItemsControl ItemsSource="{Binding DaysOfWeek}">
                 <ItemsControl.ItemsPanel>

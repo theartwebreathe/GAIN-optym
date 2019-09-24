@@ -42,26 +42,115 @@ namespace GAIN.Workout
                 OnPropertyChange("SelectedMuscleGroups");
             }
         }
+        private UserWorkout selectedUserWorkout = new UserWorkout();
+        public UserWorkout SelectedUserWorkout
+        {
+            get { return selectedUserWorkout; }
+            set
+            {
+                selectedUserWorkout = value;
+                OnPropertyChange("SelectedUserWorkout");
+            }
+        }
         public NewWorkoutViewModel()
         {
             GetSelectedItemsCommand = new DelegateCommand<object>(GetSelectedItems);
             userWorkouts.Add(new UserWorkout
                 {
                     Description = "Strength 1",
-                    Details = "Bench Press, 2 Super Sets (Legs)",
+                    Sets = 4,
+                    Exercises = new ObservableCollection<Exercise>() {
+                        new Exercise() {
+                            Description = "Low Bar Squat",
+                            CurrentReps = 5,
+                            PreviousReps = 5,
+                            CurrentWeight = 100,
+                            PreviousWeight = 100,
+                        },
+                        new Exercise() {
+                            Description = "High Bar Squat",
+                            CurrentReps = 5,
+                            PreviousReps = 5,
+                            CurrentWeight = 100,
+                            PreviousWeight = 100,
+                        },
+                        new Exercise() {
+                            Description = "Safety Bar Squat",
+                            CurrentReps = 5,
+                            PreviousReps = 5,
+                            CurrentWeight = 100,
+                            PreviousWeight = 100,
+                        },
+                        new Exercise() {
+                            Description = "Bulgarian Squat",
+                            CurrentReps = 8,
+                            PreviousReps = 8,
+                            CurrentWeight = 100,
+                            PreviousWeight = 100,
+                        },
+                        new Exercise() {
+                            Description = "Lunges",
+                            CurrentReps = 10,
+                            PreviousReps = 10,
+                        },
+                    },
                 }
             );
             userWorkouts.Add(new UserWorkout
                 {
                     Description = "Strength 2",
-                    Details = "Bench Press, 3 Super Sets (Upper-body)",
+                    Sets = 2,
+                    Exercises = new ObservableCollection<Exercise>() {
+                            new Exercise() {
+                                Description = "Low Bar Squat",
+                                CurrentReps = 5,
+                                PreviousReps = 5,
+                                CurrentWeight = 100,
+                                PreviousWeight = 100,
+                            },
+                            new Exercise() {
+                                Description = "Bulgarian Squat",
+                                CurrentReps = 8,
+                                PreviousReps = 8,
+                                CurrentWeight = 100,
+                                PreviousWeight = 100,
+                            },
+                            new Exercise() {
+                                Description = "Lunges",
+                                CurrentReps = 10,
+                                PreviousReps = 10,
+                            },
+                        },
                 }
             );
             userWorkouts.Add(new UserWorkout
                 {
-                    Description = "Ultimate Abs",
-                    Details = "Crunches, Ab Wheel Rollout",
-                }
+                    Description = "Ultimate Calves",
+                    Sets = 3,
+                    Exercises = new ObservableCollection<Exercise>() {
+                        new Exercise() {
+                            Description = "Leg Press Calf Raises",
+                            CurrentReps = 5,
+                            PreviousReps = 5,
+                            CurrentWeight = 300,
+                            PreviousWeight = 300,
+                        },
+                        new Exercise() {
+                            Description = "Standing Calf Raises",
+                            CurrentReps = 5,
+                            PreviousReps = 5,
+                            CurrentWeight = 200,
+                            PreviousWeight = 200,
+                        },
+                        new Exercise() {
+                            Description = "Squat Raises",
+                            CurrentReps = 5,
+                            PreviousReps = 5,
+                            CurrentWeight = 230,
+                            PreviousWeight = 230,
+                        },
+                    },
+            }
             );
 
             majorMuscleGroups.Add(new MajorMuscleGroup {
@@ -440,6 +529,11 @@ namespace GAIN.Workout
                 }
             }
             );
+        }
+
+        public void SetSelectedWorkout(UserWorkout userWorkout)
+        {
+            SelectedUserWorkout = userWorkout;
         }
 
         private void GetSelectedItems(object obj)

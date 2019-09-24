@@ -19,10 +19,13 @@
                     <materialDesign:PackIcon Kind="KeyboardBackspace" />
                 </Button>
                 <TextBlock Margin="8,8,8,8" Text="Workout" VerticalAlignment="Center" HorizontalAlignment="Center" Style="{StaticResource MaterialDesignHeadlineTextBlock}"/>
+                <Button HorizontalAlignment="Right" Style="{StaticResource MaterialDesignFlatButton}" Foreground="#CCFFFFFF">
+                    SKIP
+                </Button>
             </Grid>
         </materialDesign:ColorZone>
         <ScrollViewer Grid.Row="1" HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Auto">
-            <ItemsControl ItemsSource="{Binding SelectedExercises}">
+            <ItemsControl ItemsSource="{Binding CurrentWorkout.Exercises}">
                 <ItemsControl.ItemTemplate>
                     <DataTemplate>
                         <materialDesign:Card Margin="16,16,16,0" Padding="16">
@@ -44,7 +47,7 @@
                                         <materialDesign:PackIcon Kind="Add" Height="24" Width="24" />
                                     </Button>
                                 </Grid>
-                                <Grid Margin="0,8,0,0">
+                                <Grid x:Name="weight" Margin="0,8,0,0">
                                     <Grid.ColumnDefinitions>
                                         <ColumnDefinition SharedSizeGroup="A" MinWidth="80"/>
                                         <ColumnDefinition Width="*"/>
@@ -71,25 +74,26 @@
                                 </materialDesign:Chip>
                             </StackPanel>
                         </materialDesign:Card>
+                        <DataTemplate.Triggers>
+                            <DataTrigger Binding="{Binding CurrentWeight}" Value="0">
+                                <Setter TargetName="weight" Property="Visibility" Value="Collapsed"/>
+                            </DataTrigger>
+                        </DataTemplate.Triggers>
                     </DataTemplate>
                 </ItemsControl.ItemTemplate>
             </ItemsControl>
         </ScrollViewer>
-        <materialDesign:ColorZone Grid.Row="2" Mode="Standard"  Padding="24" materialDesign:ShadowAssist.ShadowDepth="Depth2" Panel.ZIndex="10">
-            <StackPanel>
-                <TextBlock HorizontalAlignment="Center" Text="Let's get started!" Style="{StaticResource MaterialDesignHeadlineTextBlock}"/>
-                <TextBlock HorizontalAlignment="Center" FontStyle="Italic" Foreground="{StaticResource MaterialDesignColumnHeader}" Text="Tap Record after completing each set"/>
-
+        <materialDesign:ColorZone Grid.Row="2" Mode="Standard"  Padding="24,0,0,0" materialDesign:ShadowAssist.ShadowDepth="Depth2" Panel.ZIndex="10">
+            <StackPanel Orientation="Horizontal">
+                <StackPanel VerticalAlignment="Center">
+                    <TextBlock Text="Let's get started!" Style="{StaticResource MaterialDesignHeadlineTextBlock}"/>
+                    <TextBlock FontStyle="Italic" Foreground="{StaticResource MaterialDesignColumnHeader}" Text="Tap Record after completing each set"/>
+                </StackPanel>
                 <materialDesign:TransitioningContent OpeningEffect="{materialDesign:TransitionEffect ExpandIn}">
-                    <StackPanel>
-                        <Button Style="{StaticResource MaterialDesignRaisedAccentButton}" Margin="16" Height="100" Width="100"
-                             materialDesign:ButtonAssist.CornerRadius="50">
-                            <TextBlock Text="RECORD" FontWeight="Medium" Style="{StaticResource MaterialDesignSubheadingTextBlock}" />
-                        </Button>
-                        <Button Style="{StaticResource MaterialDesignFlatButton}">
-                            SKIP
-                        </Button>
-                    </StackPanel>
+                    <Button Style="{StaticResource MaterialDesignRaisedAccentButton}" Margin="16" Height="100" Width="100"
+                            materialDesign:ButtonAssist.CornerRadius="50">
+                        <TextBlock Text="RECORD" FontWeight="Medium" Style="{StaticResource MaterialDesignSubheadingTextBlock}" />
+                    </Button>
                 </materialDesign:TransitioningContent>
             </StackPanel>
         </materialDesign:ColorZone>

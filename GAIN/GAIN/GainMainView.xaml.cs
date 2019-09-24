@@ -55,13 +55,22 @@ namespace GAIN
 
         private void BuildCustomWorkoutView_StartButtonPressed(object sender, RoutedEventArgs e)
         {
-            ((Workout.RecordWorkoutViewModel)recordWorkoutView.DataContext).SelectedExercises = ((Workout.BuildCustomWorkoutViewModel)buildCustomWorkoutView.DataContext).SelectedExercises;
+            ((Workout.RecordWorkoutViewModel)recordWorkoutView.DataContext).CurrentWorkout.Exercises = ((Workout.BuildCustomWorkoutViewModel)buildCustomWorkoutView.DataContext).SelectedExercises;
             transitioner.SelectedIndex = transitioner.SelectedIndex + 1;
         }
 
         private void RecordWorkoutView_BackButtonPressed(object sender, RoutedEventArgs e)
         {
-            transitioner.SelectedIndex = transitioner.SelectedIndex - 1;
+            if (((Workout.BuildCustomWorkoutViewModel)buildCustomWorkoutView.DataContext).SelectedExercises.Count < 1)
+                transitioner.SelectedIndex = transitioner.SelectedIndex - 2;
+            else
+                transitioner.SelectedIndex = transitioner.SelectedIndex - 1;
+        }
+
+        private void NewWorkoutView_StartButtonPressed(object sender, RoutedEventArgs e)
+        {
+            ((Workout.RecordWorkoutViewModel)recordWorkoutView.DataContext).CurrentWorkout.Exercises = ((Workout.NewWorkoutViewModel)newWorkoutView.DataContext).SelectedUserWorkout.Exercises;
+            transitioner.SelectedIndex = transitioner.SelectedIndex + 2;
         }
     }
 }

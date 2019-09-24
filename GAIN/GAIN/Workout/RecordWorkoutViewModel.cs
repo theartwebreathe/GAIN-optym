@@ -15,14 +15,14 @@ namespace GAIN.Workout
         public DelegateCommand<Exercise> IncrementWeightCommand { get; private set; }
         public DelegateCommand<Exercise> DecrementWeightCommand { get; private set; }
 
-        private ObservableCollection<Exercise> selectedExercises = new ObservableCollection<Exercise>();
-        public ObservableCollection<Exercise> SelectedExercises
+        private UserWorkout currentWorkout = new UserWorkout();
+        public UserWorkout CurrentWorkout
         {
-            get { return selectedExercises; }
+            get { return currentWorkout; }
             set
             {
-                selectedExercises = value;
-                OnPropertyChange("SelectedExercises");
+                currentWorkout = value;
+                OnPropertyChange("CurrentWorkout");
             }
         }
 
